@@ -7,21 +7,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Beep extends Fragment {
+public class Beep extends Fragment{
     private static final String TAG = Beep.class.getSimpleName();
     private static int firstOp, secOp;
     private static TextView tv_firstOp, tv_secOp;
     private static GenerateRandomInts generateRandomInts;
-    private static ImageButton ib_result;
     private static EditText et_addResult;
 
    // private OnFragmentInteractionListener mListener;
@@ -42,12 +44,11 @@ public class Beep extends Fragment {
 
         tv_firstOp = (TextView) view.findViewById(R.id.tv_firstOperand);
         tv_secOp = (TextView) view.findViewById(R.id.tv_secondOperand);
-        ib_result =(ImageButton) view.findViewById(R.id.imageButton_Result);
         et_addResult =(EditText)view.findViewById(R.id.et_userInputAdd);
 
         Log.e(TAG, "Loading the frag");
         load();
-
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -61,12 +62,15 @@ public class Beep extends Fragment {
         tv_firstOp.setText(String.valueOf(firstOp));
         tv_secOp.setText(String.valueOf(secOp));
     }
-    private void clickToAdd(View view){
+
+
+    @OnClick (R.id.btn_Result)
+    public void clickToAccept(View v) {
+        Log.i(TAG, "Correct" + (firstOp + secOp));
         int userEntered = Integer.parseInt(et_addResult.getText().toString());
         if (userEntered == (firstOp + secOp)){
-            Log.i(TAG, "Correct");
+            Log.i(TAG, "Correct" + (firstOp + secOp));
         }
-
     }
 
 
