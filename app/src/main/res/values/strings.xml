@@ -2,7 +2,7 @@
     <string name="app_name">FlashBeepShake</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="shake_title">Test your Multiplication Skills</string>
-    <string name ="beep_title">Test your Addition Skills</string>
-    <string name="flash_title">"You can hide, but I will find ya!"</string>
+    <string name="shake_title">Shake!</string>
+    <string name ="beep_title">Beep!</string>
+    <string name="flash_title">"FlashLight!"</string>
 </resources>
